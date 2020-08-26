@@ -1,0 +1,31 @@
+type Person {
+  id: ID!  
+  name: String!
+  age: Int!
+  email: String
+  address: Address!
+}
+
+type Address {
+    country: String!
+    city: String!
+    state: String!
+    street: String!
+    zipCode: String!
+}
+
+input AddressInput {
+    country: String!
+    city: String!
+    state: String!
+    street: String!
+    zipCode: String!
+}
+
+type Query {
+    person(name: String, minAge: Int, maxAge: Int): [Person]
+}
+
+type Mutation {
+    addPerson(name: String, age: Int, email: String, address: AddressInput): Person
+}
